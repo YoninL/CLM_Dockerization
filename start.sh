@@ -65,7 +65,7 @@ dbuser=db2inst1
 dbpass=db2inst1
 ip=localhost
 
-http_server=lexbz1207.lexington.ibm.com
+http_server=clmtest.abc.com
 
 was_command="sshpass -p $waspass ssh -o "StrictHostKeyChecking=no" -p $was_ssh_port $wasuser@$ip"
 db2_command="sshpass -p $dbpass ssh -o "StrictHostKeyChecking=no" -p $db2_ssh_port $dbuser@$ip"
@@ -113,13 +113,13 @@ install_default_apps()
   # ping 9043
 
   # jts
-  $was_command "echo \"com.ibm.team.repository.server.repourl.hostname=$public_uri\" >> /opt/IBM/JazzTeamServer601/server/conf/jts/teamserver.properties;echo 'com.ibm.team.repository.ldap.registryLocation=ldaps\://bluepages.ibm.com 636' >> /opt/IBM/JazzTeamServer601/server/conf/jts/teamserver.properties;echo 'com.ibm.team.repository.ldap.baseGroupDN=ou\=memberList,ou\=ibmGroups,o\=ibm.com' >> /opt/IBM/JazzTeamServer601/server/conf/jts/teamserver.properties;echo 'com.ibm.team.repository.ldap.findGroupsForUserQuery=uniquemember\={USER-DN}' >> /opt/IBM/JazzTeamServer601/server/conf/jts/teamserver.properties;echo 'com.ibm.team.repository.ldap.membersOfGroup=uniquemember' >> /opt/IBM/JazzTeamServer601/server/conf/jts/teamserver.properties;echo 'com.ibm.team.repository.ldap.userAttributesMapping=userId\=preferredidentity,name\=cn,emailAddress\=mail' >> /opt/IBM/JazzTeamServer601/server/conf/jts/teamserver.properties;echo 'com.ibm.team.repository.ldap.baseUserDN=ou\=bluepages,o\=ibm.com' >> /opt/IBM/JazzTeamServer601/server/conf/jts/teamserver.properties;/opt/IBM/WebSphere/AppServer/bin/wsadmin.sh -lang jython -user dstacces@us.ibm.com -password acces4dst -f /scripts/install_jts_app.py"
+  $was_command "echo \"com.ibm.team.repository.server.repourl.hostname=$public_uri\" >> /opt/IBM/JazzTeamServer601/server/conf/jts/teamserver.properties;echo 'com.ibm.team.repository.ldap.registryLocation=ldaps\://bluepages.ibm.com 636' >> /opt/IBM/JazzTeamServer601/server/conf/jts/teamserver.properties;echo 'com.ibm.team.repository.ldap.baseGroupDN=ou\=memberList,ou\=ibmGroups,o\=ibm.com' >> /opt/IBM/JazzTeamServer601/server/conf/jts/teamserver.properties;echo 'com.ibm.team.repository.ldap.findGroupsForUserQuery=uniquemember\={USER-DN}' >> /opt/IBM/JazzTeamServer601/server/conf/jts/teamserver.properties;echo 'com.ibm.team.repository.ldap.membersOfGroup=uniquemember' >> /opt/IBM/JazzTeamServer601/server/conf/jts/teamserver.properties;echo 'com.ibm.team.repository.ldap.userAttributesMapping=userId\=preferredidentity,name\=cn,emailAddress\=mail' >> /opt/IBM/JazzTeamServer601/server/conf/jts/teamserver.properties;echo 'com.ibm.team.repository.ldap.baseUserDN=ou\=bluepages,o\=ibm.com' >> /opt/IBM/JazzTeamServer601/server/conf/jts/teamserver.properties;/opt/IBM/WebSphere/AppServer/bin/wsadmin.sh -lang jython -user jeremy@abc.com -password pass4jeremy -f /scripts/install_jts_app.py"
 
   # dcc
-  $was_command "echo \"com.ibm.team.repository.server.repourl.hostname=$public_uri\" >> /opt/IBM/JazzTeamServer601/server/conf/dcc/teamserver.properties;/opt/IBM/WebSphere/AppServer/bin/wsadmin.sh -lang jython -user dstacces@us.ibm.com -password acces4dst -f /scripts/install_dcc_app.py"
+  $was_command "echo \"com.ibm.team.repository.server.repourl.hostname=$public_uri\" >> /opt/IBM/JazzTeamServer601/server/conf/dcc/teamserver.properties;/opt/IBM/WebSphere/AppServer/bin/wsadmin.sh -lang jython -user jeremy@abc.com -password pass4jeremy -f /scripts/install_dcc_app.py"
 
   # jrs
-  # $was_command "echo \"com.ibm.team.repository.server.repourl.hostname=$public_uri\" >> /opt/IBM/JazzTeamServer601/server/conf/rs/teamserver.properties;/opt/IBM/WebSphere/AppServer/bin/wsadmin.sh -lang jython -user dstacces@us.ibm.com -password acces4dst -f /scripts/install_rs_app.py"
+  # $was_command "echo \"com.ibm.team.repository.server.repourl.hostname=$public_uri\" >> /opt/IBM/JazzTeamServer601/server/conf/rs/teamserver.properties;/opt/IBM/WebSphere/AppServer/bin/wsadmin.sh -lang jython -user jeremy@abc.com -password pass4jeremy -f /scripts/install_rs_app.py"
 
 }
 
@@ -201,18 +201,18 @@ install_app_s(){
 
   if [ "$app" = "CCM" ]; then
   # ccm & clmhelp
-  $was_command "echo \"com.ibm.team.repository.server.repourl.hostname=$public_uri\" >> /opt/IBM/JazzTeamServer601/server/conf/ccm/teamserver.properties;/opt/IBM/WebSphere/AppServer/bin/wsadmin.sh -lang jython -user dstacces@us.ibm.com -password acces4dst -f /scripts/install_ccm_app.py"
+  $was_command "echo \"com.ibm.team.repository.server.repourl.hostname=$public_uri\" >> /opt/IBM/JazzTeamServer601/server/conf/ccm/teamserver.properties;/opt/IBM/WebSphere/AppServer/bin/wsadmin.sh -lang jython -user jeremy@abc.com -password pass4jeremy -f /scripts/install_ccm_app.py"
   echo "Creating CCM database.."
   $db2_command "db2 create db ccm using codeset UTF-8 territory en PAGESIZE 16384"
 
 elif [ "$app" = "QM" ]; then
-  $was_command "echo \"com.ibm.team.repository.server.repourl.hostname=$public_uri\" >> /opt/IBM/JazzTeamServer601/server/conf/qm/teamserver.properties;/opt/IBM/WebSphere/AppServer/bin/wsadmin.sh -lang jython -user dstacces@us.ibm.com -password acces4dst -f /scripts/install_qm_app.py"
+  $was_command "echo \"com.ibm.team.repository.server.repourl.hostname=$public_uri\" >> /opt/IBM/JazzTeamServer601/server/conf/qm/teamserver.properties;/opt/IBM/WebSphere/AppServer/bin/wsadmin.sh -lang jython -user jeremy@abc.com -password pass4jeremy -f /scripts/install_qm_app.py"
   echo "Creating QM database.."
   $db2_command "db2 create db qm using codeset UTF-8 territory en PAGESIZE 16384"
 
 elif [ "$app" = "RM" ]; then
   # rm & converter
-  $was_command "echo \"com.ibm.team.repository.server.repourl.hostname=$public_uri\" >> /opt/IBM/JazzTeamServer601/server/conf/rm/teamserver.properties;/opt/IBM/WebSphere/AppServer/bin/wsadmin.sh -lang jython -user dstacces@us.ibm.com -password acces4dst -f /scripts/install_rm_app.py"
+  $was_command "echo \"com.ibm.team.repository.server.repourl.hostname=$public_uri\" >> /opt/IBM/JazzTeamServer601/server/conf/rm/teamserver.properties;/opt/IBM/WebSphere/AppServer/bin/wsadmin.sh -lang jython -user jeremy@abc.com -password pass4jeremy -f /scripts/install_rm_app.py"
   echo "Creating RM database.."
   $db2_command "db2 create db rm using codeset UTF-8 territory en PAGESIZE 16384"
 
