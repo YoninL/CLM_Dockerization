@@ -1,6 +1,6 @@
 #!/bin/bash
 # Name: one key start dockerized CLM
-# Author: Eric, Jaden, Jeremy
+# Author: Jeremy
 # Date: 2016.03.22
 # Description: start dockerized CLM per user's input.
 # Usage: ./start.sh
