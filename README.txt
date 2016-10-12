@@ -17,3 +17,5 @@ Multiple/Enterprise:
 ---------------------------------------
 |    |   |        |       |           |
 DB2 CLM WAS-JTS WAS-DCC WAS-JRS WAS-CCM/WAS-RM/WAS-QM
+
+For now only completed the standalone version.
