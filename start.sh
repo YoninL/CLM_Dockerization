@@ -283,7 +283,7 @@ download_images(){
   if [ $? -eq 0 ]; then
     echo "clm image exists."
   else
-    # sftp -P 2222 ftp1@lexbz1207.lexington.ibm.com:/images/clm.tar /tmp
+    # sftp -P 2222 ftp1@clmtest.abc.com:/images/clm.tar /tmp
     which wget
     if [ $? -eq 0 ]; then
     wget http://$http_server:8080/clm.tar
@@ -298,7 +298,7 @@ download_images(){
   if [ $? -eq 0 ]; then
     echo "clmwas image exists."
   else
-    # sftp -P 2222 ftp1@lexbz1207.lexington.ibm.com:/images/clmwas.tar /tmp
+    # sftp -P 2222 ftp1@clmtest.abc.com:/images/clmwas.tar /tmp
     which wget
     if [ $? -eq 0 ]; then
     wget http://$http_server:8080/clmwas.tar
@@ -313,7 +313,7 @@ download_images(){
   if [ $? -eq 0 ]; then
     echo "db2 image exists."
   else
-    # sftp -P 2222 ftp1@lexbz1207.lexington.ibm.com:/images/db2ese.tar /tmp
+    # sftp -P 2222 ftp1@clmtest.abc.com:/images/db2ese.tar /tmp
     which wget
     if [ $? -eq 0 ]; then
     wget http://$http_server:8080/db2ese.tar
